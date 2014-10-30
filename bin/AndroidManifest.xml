@@ -1,0 +1,50 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.dkapit.launcher"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="21" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+          	android:name=".HomeActivity"
+            android:label="Launcher Home"
+            android:launchMode="singleTask"
+            android:stateNotNeeded="true"
+            android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                
+
+                <category android:name="android.intent.category.HOME" />
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+          	android:name=".HomeScreen"
+            android:label="Launcher Secret"
+            android:launchMode="singleTask"
+            android:stateNotNeeded="true"
+            android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                
+
+<!--                 <category android:name="android.intent.category.HOME" />
+                <action android:name="android.intent.action.MAIN" /> -->
+                
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.dkapit.launcher.AppsListActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+    </application>
+
+</manifest>

@@ -15,9 +15,6 @@ import java.util.Collection;
 
 import com.dkapit.launcher.R;
 
-/**
- * Created by Arnab Chakraborty
- */
 public class AppsListAdapter extends ArrayAdapter<AppModel> {
     private final LayoutInflater mInflater;
 

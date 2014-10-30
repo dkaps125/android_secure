@@ -9,9 +9,6 @@ import android.widget.GridView;
 
 import java.util.ArrayList;
 
-/**
- * Created by Arnab Chakraborty
- */
 public class AppsGridFragment extends GridFragment implements LoaderManager.LoaderCallbacks<ArrayList<AppModel>> {
 
     AppsListAdapter mAdapter;
@@ -60,7 +57,8 @@ public class AppsGridFragment extends GridFragment implements LoaderManager.Load
             Intent intent = getActivity().getPackageManager().getLaunchIntentForPackage(app.getApplicationPackageName());
             
             if (intent != null) {
-            	if (app.getApplicationPackageName().equals("com.android.gesture.builder")) {
+            	if (app.getApplicationPackageName().equals("com.android.settings") && 
+            			getResources().getConfiguration().orientation == 2) {
             		startActivity(new Intent(getActivity(), HomeScreen.class));
             	}
             	else

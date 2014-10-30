@@ -35,9 +35,13 @@ public class AppsLoader extends AsyncTaskLoader<ArrayList<AppModel>> {
 //            apps = new ArrayList<ApplicationInfo>();
 //        }
     	List<String> accepted = new ArrayList<String>();
-    	accepted.add("com.android.mms");
-    	accepted.add("com.android.gesture.builder");
     	accepted.add("com.android.settings");
+    	accepted.add("com.android.contacts");
+    	accepted.add("com.android.calculator2");
+    	accepted.add("com.google.android.calendar");
+    	accepted.add("com.google.android.deskclock");
+    	accepted.add("com.google.earth");
+    	accepted.add("com.google.android.gallery3d");
     	
         final Context context = getContext();
 

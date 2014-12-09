@@ -19,6 +19,7 @@ public class AppsLoader extends AsyncTaskLoader<ArrayList<AppModel>> {
 
     final PackageManager mPm;
     PackageIntentReceiver mPackageObserver;
+    static List<String> accepted = new ArrayList<String>();
 
     public AppsLoader(Context context) {
         super(context);
@@ -34,7 +35,7 @@ public class AppsLoader extends AsyncTaskLoader<ArrayList<AppModel>> {
 //        if (apps == null) {
 //            apps = new ArrayList<ApplicationInfo>();
 //        }
-    	List<String> accepted = new ArrayList<String>();
+    	
     	accepted.add("com.android.settings");
     	accepted.add("com.android.contacts");
     	accepted.add("com.android.calculator2");
@@ -51,8 +52,7 @@ public class AppsLoader extends AsyncTaskLoader<ArrayList<AppModel>> {
             String pkg = apps.get(i).packageName;
 
             // only apps which are launchable
-            if (context.getPackageManager().getLaunchIntentForPackage(pkg) != null &&
-            		accepted.contains(pkg)) {
+            if (context.getPackageManager().getLaunchIntentForPackage(pkg) != null) {
                 AppModel app = new AppModel(context, apps.get(i));
                 app.loadLabel(context);
                 items.add(app);

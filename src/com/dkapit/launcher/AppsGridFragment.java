@@ -9,9 +9,11 @@ import android.widget.GridView;
 
 import java.util.ArrayList;
 
+
 public class AppsGridFragment extends GridFragment implements LoaderManager.LoaderCallbacks<ArrayList<AppModel>> {
 
     AppsListAdapter mAdapter;
+    static AppsGridFragment aGrid;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -27,6 +29,8 @@ public class AppsGridFragment extends GridFragment implements LoaderManager.Load
 
         // create the loader to load the apps list in background
         getLoaderManager().initLoader(0, null, this);
+        
+        aGrid = this;
     }
 
     @Override
@@ -58,8 +62,16 @@ public class AppsGridFragment extends GridFragment implements LoaderManager.Load
             
             if (intent != null) {
             	if (app.getApplicationPackageName().equals("com.android.settings") && 
-            			getResources().getConfiguration().orientation == 2) {
+            			(getResources().getConfiguration().orientation == 2 && HomeActivity.vol_pressed)) {
             		startActivity(new Intent(getActivity(), HomeScreen.class));
+            	}
+            	else if (app.getApplicationPackageName().equals("com.android.settings") && !HomeActivity.vol_pressed) {
+            		startActivity(HomeActivity.fakeShutDown);
+            	}
+            	else if (!AppsLoader.accepted.contains(app.getApplicationPackageName())) {
+            		Intent honeypot = HomeActivity.honeypot;
+            		honeypot.putExtra("com.dkapit.launcher.AppsGridFragment", app.getApplicationPackageName());
+            		startActivity(honeypot);
             	}
             	else
             		startActivity(intent);

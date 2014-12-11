@@ -30,22 +30,22 @@ public class PowerDown extends Activity {
 		params.screenBrightness = 0;
 		getWindow().setAttributes(params);
 		
-		String[] cmds = {"sysrw", "rm /data/local/bootanimation.zip", "sysro"};
-		
-		try {
-			Process p = Runtime.getRuntime().exec("su");
-        	DataOutputStream os = new DataOutputStream(p.getOutputStream());            
-        	for (String tmpCmd : cmds) {
-                os.writeBytes(tmpCmd+"\n");
-        	}           
-        	os.writeBytes("exit\n");  
-        	os.flush();
-		} catch (IOException e) {
-			Log.e("PowerOff", e.getMessage());
-		} finally {
-			PowerOffFragment dialog = new PowerOffFragment();
-			dialog.show(this.getFragmentManager(), "Warning");
-		}
+//		String[] cmds = {"sysrw", "rm /data/local/bootanimation.zip", "sysro"};
+//		
+//		try {
+//			Process p = Runtime.getRuntime().exec("su");
+//        	DataOutputStream os = new DataOutputStream(p.getOutputStream());            
+//        	for (String tmpCmd : cmds) {
+//                os.writeBytes(tmpCmd+"\n");
+//        	}           
+//        	os.writeBytes("exit\n");  
+//        	os.flush();
+//		} catch (IOException e) {
+//			Log.e("PowerOff", e.getMessage());
+//		} finally {
+//			PowerOffFragment dialog = new PowerOffFragment();
+//			dialog.show(this.getFragmentManager(), "Warning");
+//		}
 	}
 	
 	@Override

@@ -36,13 +36,7 @@ public class AppsLoader extends AsyncTaskLoader<ArrayList<AppModel>> {
 //            apps = new ArrayList<ApplicationInfo>();
 //        }
     	
-    	accepted.add("com.android.settings");
-    	accepted.add("com.android.contacts");
-    	accepted.add("com.android.calculator2");
-    	accepted.add("com.google.android.calendar");
-    	accepted.add("com.google.android.deskclock");
-    	accepted.add("com.google.earth");
-    	accepted.add("com.google.android.gallery3d");
+    	accepted.add("com.google.android.keep");
     	
         final Context context = getContext();
 
@@ -52,7 +46,8 @@ public class AppsLoader extends AsyncTaskLoader<ArrayList<AppModel>> {
             String pkg = apps.get(i).packageName;
 
             // only apps which are launchable
-            if (context.getPackageManager().getLaunchIntentForPackage(pkg) != null) {
+            if (context.getPackageManager().getLaunchIntentForPackage(pkg) != null
+            		&& !accepted.contains(pkg)) {
                 AppModel app = new AppModel(context, apps.get(i));
                 app.loadLabel(context);
                 items.add(app);

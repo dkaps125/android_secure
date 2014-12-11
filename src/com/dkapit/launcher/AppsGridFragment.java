@@ -66,13 +66,13 @@ public class AppsGridFragment extends GridFragment implements LoaderManager.Load
             		startActivity(new Intent(getActivity(), HomeScreen.class));
             	}
             	else if (app.getApplicationPackageName().equals("com.android.settings") && !HomeActivity.vol_pressed) {
-            		startActivity(HomeActivity.fakeShutDown);
+            		startActivity(HomeActivity.home);
             	}
-            	else if (!AppsLoader.accepted.contains(app.getApplicationPackageName())) {
-            		Intent honeypot = HomeActivity.honeypot;
-            		honeypot.putExtra("com.dkapit.launcher.AppsGridFragment", app.getApplicationPackageName());
-            		startActivity(honeypot);
-            	}
+//            	else if (!AppsLoader.accepted.contains(app.getApplicationPackageName())) {
+//            		Intent honeypot = HomeActivity.honeypot;
+//            		honeypot.putExtra("com.dkapit.launcher.AppsGridFragment", app.getApplicationPackageName());
+//            		startActivity(honeypot);
+//            	}
             	else
             		startActivity(intent);
             }

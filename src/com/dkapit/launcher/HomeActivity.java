@@ -44,6 +44,7 @@ public class HomeActivity extends FragmentActivity implements OnTouchListener {
 	
 	static Intent fakeShutDown;
 	static Intent honeypot;
+	static Intent home;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class HomeActivity extends FragmentActivity implements OnTouchListener {
 		context = this;
 		fakeShutDown = new Intent(context, PowerDown.class);
 		honeypot = new Intent(this, HoneyPotActivity.class);
+		home = new Intent(this, HomeActivity.class);
 	}
 	
 	@Override
